@@ -1,0 +1,46 @@
+﻿@using AspNetCoreJTokenModelBinder.Example.Controllers
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row">
+    <div class="col-md-3">
+        <form asp-controller="Home" asp-action="FormReciever" method="post" asp-antiforgery="true">
+            <input type="text" name="Year" value="2018"/>
+            <input type="text" name="Month" value="Feb"/>
+            @for(var i = 0; i < 5; i++)
+            {
+                <input type="text" name="@("Foo["+ i + "].Baz")" value="@(i)"/>
+                <input type="text" name="@("Foo["+ i + "].Bar")" value="@(i)"/>
+            }
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+    <div class="col-md-3">
+        <script>
+            function doPost() {
+                var url = "@Url.Action(nameof(HomeController.ApplicationJsonReciever), "Home")";
+                fetch(url,
+                        {
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            method: "POST",
+                            body: JSON.stringify({ a: 1, b: 2 })
+                        })
+                    .then(function (res) { return res.text(); })
+                    .then(function (text) { alert(text); })
+                    .catch(function (res) { console.log(res); });
+            }
+        </script>
+        <button onclick="doPost()">POST json via javascript</button>
+    </div>
+    <div class="col-md-3">
+     
+    </div>
+    <div class="col-md-3">
+        
+    </div>
+</div>

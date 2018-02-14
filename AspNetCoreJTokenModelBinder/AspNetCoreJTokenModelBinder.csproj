@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Authors>Harry McIntyre</Authors>
+    <Company>Harry McIntyre</Company>
+    <Description>A model binder for ASP.NET Core which allows you to bind to JToken (so JArray and JObject are covered) from either application/json or from an html form post</Description>
+    <Copyright>Harry McIntyre</Copyright>
+    <PackageLicenseUrl>https://bitbucket.org/mcintyre321/aspnetcorejtokenmodelbinder/src/master/license.md</PackageLicenseUrl>
+    <PackageProjectUrl>https://bitbucket.org/mcintyre321/aspnetcorejtokenmodelbinder</PackageProjectUrl>
+    <RepositoryUrl>https://bitbucket.org/mcintyre321/aspnetcorejtokenmodelbinder</RepositoryUrl>
+    <PackageTags>asp.net;mvc;core;asp.net core;modelbinder;json;jobject;json.net;jtoken;jarray;dynamic</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+  </ItemGroup>
+
+</Project>
